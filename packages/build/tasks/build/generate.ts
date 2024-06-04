@@ -2,7 +2,6 @@ import * as fs from 'fs'
 import { parallel, series } from 'gulp'
 import { koiConfig, koiManifest, koiVersionInfo } from '../../templates'
 import { dir } from '../../utils/path'
-import { i18nGenerate } from '../i18n'
 import { generateAssets } from './assets'
 
 export const generateKoiConfig = () =>
@@ -20,6 +19,5 @@ export const generate = series(
     generateKoiVersionInfo,
     generateKoiManifest,
     generateAssets
-  ),
-  i18nGenerate
+  )
 )
