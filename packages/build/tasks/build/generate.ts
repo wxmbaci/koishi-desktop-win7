@@ -13,11 +13,9 @@ export const generateKoiVersionInfo = () =>
 export const generateKoiManifest = () =>
   fs.promises.writeFile(dir('src', 'koi.exe.manifest'), koiManifest)
 
-export const generate = series(
-  parallel(
+export const generate = parallel(
     generateKoiConfig,
     generateKoiVersionInfo,
     generateKoiManifest,
     generateAssets
-  )
 )
